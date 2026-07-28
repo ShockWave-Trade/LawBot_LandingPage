@@ -1,7 +1,7 @@
 'use strict';
 
 /* ── Конфігурація ─────────────────────────────────────── */
-const WIDGET_WEBHOOK = 'https://n8n.shockwavetrade.com/webhook/ad4d8dc2-430e-486a-9236-aefc120cbbb2';
+const WIDGET_WEBHOOK = window.APP_CONFIG?.WIDGET_WEBHOOK;
 
 const WELCOME_MSG = 'Вітаю! Я — юридичний ШІ-асистент LexBot.\n\nОпишіть вашу ситуацію або запитайте про наші послуги — я допоможу підготуватись до консультації з адвокатом.';
 
