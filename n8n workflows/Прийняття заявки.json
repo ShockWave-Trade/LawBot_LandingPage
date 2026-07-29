@@ -1,0 +1,146 @@
+{
+  "name": "Прийняття заявки",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "f6c5683f-c81e-4f9a-9937-4e709fc86353",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -544,
+        -32
+      ],
+      "id": "1e22db8c-a166-4714-841e-518b8cc47e33",
+      "name": "Webhook",
+      "webhookId": "f6c5683f-c81e-4f9a-9937-4e709fc86353"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1i3_6u6OIpXtNK4cxqsOAK2GBPHg1SFyBgV1vHbBwWjE",
+          "mode": "list",
+          "cachedResultName": "База юристів",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1i3_6u6OIpXtNK4cxqsOAK2GBPHg1SFyBgV1vHbBwWjE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2051990236,
+          "mode": "list",
+          "cachedResultName": "Запис з лендінга",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1i3_6u6OIpXtNK4cxqsOAK2GBPHg1SFyBgV1vHbBwWjE/edit#gid=2051990236"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ПІБ": "={{ $json.body.fullname }}",
+            "Номер телефону": "='{{ $json.body.phone }}",
+            "Пошта": "={{ $json.body.email }}",
+            "Телеграм": "={{ $json.body.telegram }}",
+            "Статус": "Новий запит"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ПІБ",
+              "displayName": "ПІБ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Номер телефону",
+              "displayName": "Номер телефону",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Пошта",
+              "displayName": "Пошта",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Телеграм",
+              "displayName": "Телеграм",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Статус",
+              "displayName": "Статус",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -288,
+        -32
+      ],
+      "id": "e480a153-73cd-4cdc-894a-961e6b095cf1",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CsUwDKA7YXnG5Ctg",
+          "name": "Toysi drop Prom"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "saveDataSuccessExecution": "all",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "9au36nXq5UgIRAN7"
+  },
+  "versionId": "e50d9215-f10c-449c-93b6-bf2121bfc3fe",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d12a1e9463fd9a1f9ce8d567d491e83fcf6372962486328bd88b2abbc2975a3a"
+  },
+  "nodeGroups": [],
+  "id": "gc4SBCDwN3oVR9uQ",
+  "tags": []
+}
